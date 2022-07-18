@@ -1,0 +1,127 @@
+
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row">
+        <div class="col">
+          <h3 class="page-title">Sửa thông tin người dùng</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/users']">Người dùng</a></li>
+            <li class="breadcrumb-item active">Sửa thông tin người dùng</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Thông tin người dùng</h4>
+          </div>
+          <div class="card-body">
+            <form  *ngIf="user" (ngSubmit)="onSubmit()">
+              <div class="form-group row">
+                <label>Ảnh đại diện</label>
+                <input class="form-control" type="text" id="avatar" name="avatar" type="text"  [(ngModel)]="user.avatar">
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-2">Tên người dùng</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" required id="name" name="name" type="text"  [(ngModel)]="user.name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-2">Email</label>
+                <div class="col-md-10">
+                  <input type="email" class="form-control" required id="email" name="email" type="text"  [(ngModel)]="user.email">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-2">Password</label>
+                <div class="col-md-10">
+                  <input type="text" class="form-control" required id="password" name="password" type="text"  [(ngModel)]="user.password">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-form-label col-md-2">Ngày tạo</label>
+                <div class="cal-icon col-md-10">
+                  <input class="form-control datetimepicker" name="date_created" id="date_created" name="date_created" type="text"  [(ngModel)]="user.date_created">
+                </div>
+              </div>
+              <div class="mt-4">
+                <button class="btn btn-primary" type="submit">Cập Nhật</button>
+                <a (click)="gotoList()" class="btn btn-link">Hủy</a>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Danh sách bình luận</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover table-center mb-0 datatable">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Ngày thêm</th>
+                  <th>Nội dung</th>
+                  <th class="text-right">Hành Động</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let comment of comments | async">
+                  <td>{{comment.id}}</td>
+                  <td>{{comment.date_created}}</td>
+                  <td>{{comment.content}}</td>
+                  <td class="text-right">
+                    <button (click)="deleteComment(comment.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Danh sách yêu thích</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover table-center mb-0 datatable">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Ngày thêm</th>
+                  <th class="text-right">Hành Động</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr  *ngFor="let like of likes | async">
+                  <td>{{like.id}}</td>
+                  <td>{{like.date_created}}</td>
+                  <td class="text-right">
+                    <button (click)="deleteLike(like.id||0)"  type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+                  </td>
+
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Main Wrapper -->

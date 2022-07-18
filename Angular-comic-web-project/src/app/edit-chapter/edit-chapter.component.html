@@ -1,0 +1,100 @@
+
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row">
+        <div class="col">
+          <h3 class="page-title">Sửa nội dung chương </h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
+            <li *ngIf="comic" class="breadcrumb-item active"><a [routerLink]="['/comics/'+comic.id+'/chapters']">{{comic.name}}</a></li>
+            <li class="breadcrumb-item active">Sửa nội dung chương</li>
+          </ul>
+        </div>
+        <!-- <div class="col-auto text-right">
+          <a class="btn btn-white filter-btn" href="javascript:void(0);" id="filter_search">
+            <i class="fas fa-filter"></i>
+          </a>
+          <a href="add-category.html" class="btn btn-primary add-button ml-3">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Search Filter -->
+    <div class="card filter-card" id="filter_inputs">
+      <div class="card-body pb-0">
+        <form action="#" method="post">
+          <div class="row filter-row">
+
+            <!-- thay đổi ở đây ************************ -->
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Mã sản phẩm</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Tên sản phẩm</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <!-- Thay đổi theo danh sách đề mục -->
+
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Chọn</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- /Search Filter -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <!-- <table class="table table-hover table-center mb-0 datatable"> -->
+              <!-- Thay đổi code ở đây Thay đổi theo file word -->
+              <!-- Form -->
+              <form  *ngIf="chapter" (ngSubmit)="onSubmit()">
+
+                <div class="form-group">
+                  <label>Id</label>
+                  <input class="form-control" id="id" name="id" type="text" readonly  [(ngModel)]="chapter.id">
+                </div>
+                <div class="form-group">
+                  <label>Tên</label>
+                  <input class="form-control" id="name" name="name" type="text"  [(ngModel)]="chapter.name">
+                </div>
+                <div class="form-group">
+                  <label>Ngày xuất bản</label>
+                  <input class="form-control" type="date" id="date_created" name="date_created" type="text"  [(ngModel)]="chapter.date_created">
+                </div>
+                <div>
+                  <label>Nội dung</label>
+                  <textarea style="height: 400px;" name="" class="form-control" id="content" name="content" type="text"  [(ngModel)]="chapter.content">
+										</textarea>
+                </div>
+                <div class="mt-4">
+                  <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
+                  <a (click)="gotoList()" class="btn btn-link">Hủy</a>
+                </div>
+              </form>
+              <!-- /Form -->
+              <!-- Thêm vào nội dung ở đây -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

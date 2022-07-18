@@ -1,0 +1,85 @@
+
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row">
+        <div class="col">
+          <h3 class="page-title">Danh sách chương</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
+            <li *ngIf="comic" class="breadcrumb-item active">{{comic.name}}</li>
+            <li class="breadcrumb-item active">Danh sách chương</li>
+          </ul>
+        </div>
+        <div class="col-auto text-right">
+          <a [routerLink]="['/add-chapter/'+comic_id]" class="btn btn-primary add-button ml-3">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Search Filter -->
+    <div class="card filter-card" >
+      <div class="card-body pb-0">
+        <form (ngSubmit)="search(searchTerm)" method="post">
+          <div class="row filter-row">
+            <div class="col-sm-6 col-md-9">
+              <div class="form-group">
+                <label>Tên chương</label>
+                <input  [(ngModel)]="searchTerm" name="searchTerm" placeholder="Nhập tên chương..." class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Tìm Kiếm</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- /Search Filter -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-hover table-center mb-0 datatable">
+                <!-- Thay đổi code ở đây Thay đổi theo file word -->
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Tên chương</th>
+                  <th>Ngày tạo</th>
+                  <th>Bình luận</th>
+                  <th class="text-right">Hành Động</th>
+                </tr>
+                </thead>
+                <!-- Thêm vào nội dung ở đây -->
+                <tbody>
+                <tr  *ngFor="let chapter of chaptersAll |searchByName: searchTerm">
+                  <td>{{chapter.id}}</td>
+                  <td>{{chapter.name}}</td>
+                  <td>{{chapter.date_created}}</td>
+                  <td><a [routerLink]="['/comics/comments/'+comic_id+'/'+chapter.id]">Xem</a></td>
+                  <td class="text-right">
+                    <a [routerLink]="['/edit-chapter/'+comic_id+'/'+chapter.id]" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
+                    <button (click)="deleteChapter(chapter.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,149 @@
+
+<div class="page-wrapper">
+  <div class="content container-fluid">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="row">
+        <div class="col">
+          <h3 class="page-title">Sửa truyện</h3>
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
+            <li class="breadcrumb-item active">Sửa truyện</li>
+          </ul>
+        </div>
+        <!-- <div class="col-auto text-right">
+          <a class="btn btn-white filter-btn" href="javascript:void(0);" id="filter_search">
+            <i class="fas fa-filter"></i>
+          </a>
+          <a href="add-category.html" class="btn btn-primary add-button ml-3">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div> -->
+      </div>
+    </div>
+    <!-- /Page Header -->
+
+    <!-- Search Filter -->
+    <div class="card filter-card" id="filter_inputs">
+      <div class="card-body pb-0">
+        <form action="#" method="post">
+          <div class="row filter-row">
+
+            <!-- thay đổi ở đây ************************ -->
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Mã sản phẩm</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Tên sản phẩm</label>
+                <input class="form-control" type="text">
+              </div>
+            </div>
+            <!-- Thay đổi theo danh sách đề mục -->
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <label>Category</label>
+                <select class="form-control select">
+                  <option>Chọn Danh Mục</option>
+                  <option>Cây để bàn</option>
+                  <option>Cây dây leo</option>
+                  <option>Cây tết</option>
+                  <option>Cây thủy sinh</option>
+                  <option>Cây trong nhà</option>
+                  <option>Cây ngoài vườn</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-3">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" type="submit">Chọn</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- /Search Filter -->
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="table-responsive">
+              <!-- <table class="table table-hover table-center mb-0 datatable"> -->
+              <!-- Thay đổi code ở đây Thay đổi theo file word -->
+              <!-- Form -->
+              <form *ngIf="comic" (ngSubmit)="onSubmit()">
+
+                <div class="form-group">
+                  <label>Ảnh bìa</label>
+                  <input class="form-control" id="cover_image" name="cover_image" type="text"  [(ngModel)]="comic.cover_image">
+<!--                  <div class="avatar">-->
+<!--                    <img class="avatar-img rounded" alt="" src="{{comic.cover_image}}">-->
+<!--                  </div>-->
+                </div>
+<!--                <div class="form-group">-->
+<!--                  <div class="avatar">-->
+<!--                    <img class="avatar-img rounded" alt="" src="{{comic.cover_image}}">-->
+<!--                  </div>-->
+<!--                </div>-->
+                <div class="form-group">
+                  <label>Tên truyện</label>
+                  <input class="form-control" id="name" name="name" type="text"  [(ngModel)]="comic.name">
+                </div>
+                <div class="form-group">
+                  <label>Tác giả</label>
+                  <input class="form-control" id="author" name="author" type="text" [(ngModel)]="comic.author">
+                </div>
+                <div class="form-group">
+                  <label>Quốc gia</label>
+                  <input class="form-control"  id="nation" name="nation" type="text" [(ngModel)]="comic.nation">
+                </div>
+                <div class="form-group">
+                  <label>Số chương</label>
+                  <input class="form-control" id="chapter_number" name="chapter_number" type="text" [(ngModel)]="comic.chapter_number">
+                </div>
+                <div class="form-group">
+                  <label>Ngày xuất bản</label>
+                  <input class="form-control"  id="date_created" name="date_created"  type="text" [(ngModel)]="comic.date_created">
+                </div>
+                <div class="form-group">
+                  <label>Chọn danh mục</label><br>
+                  <select [(ngModel)]="comic.category"  id="category" name="category" class="form-control select">
+                    <option  *ngFor="let o of options">
+                      {{o.name}}
+                    </option>
+                  </select>
+                </div>
+                <div class="status-toggle">
+                  <input [(ngModel)]="comic.display"  id="display" name="display"  type="checkbox">
+                  <label style="margin-left: 2px">Hiển thị</label>
+                  <br>
+                  <input [(ngModel)]="comic.full"  id="full" name="full"  type="checkbox">
+                  <label style="margin-left: 2px">Hoàn thành</label>
+                  <!--                <input id="rating_2" class="check" type="checkbox" checked>-->
+                  <!--                <label for="rating_2" [(ngModel)]="comic.display" [ngModelOptions]="{standalone: true}" id="display" name="display" class="checktoggle">checkbox</label>-->
+                </div>
+                <div class="form-group">
+                  <label>Mô tả</label>
+                  <textarea style="height: 100px;" class="form-control"  id="description" name="description"  [(ngModel)]="comic.description" type="text"></textarea>
+                </div>
+                <div class="mt-4">
+                  <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
+                  <a (click)="gotoList()" class="btn btn-link">Hủy</a>
+                </div>
+              </form>
+              <!-- /Form -->
+              <!-- Thêm vào nội dung ở đây -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
