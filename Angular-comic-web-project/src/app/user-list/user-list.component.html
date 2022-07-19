@@ -6,7 +6,7 @@
     <div class="page-header">
       <div class="row">
         <div class="col">
-          <h3 class="page-title">Danh sách người dùng</h3>
+          <h3 class="page-title">{{'User-list' | translate}}</h3>
         </div>
         <div class="col-auto text-right">
           <a [routerLink]="['/add-user']"  class="btn btn-primary add-button ml-3">
@@ -24,13 +24,13 @@
           <div class="row filter-row">
             <div class="col-sm-6 col-md-9">
               <div class="form-group">
-                <label>Tên người dùng</label>
-                <input  [(ngModel)]="searchTerm" name="searchTerm" placeholder="Nhập tên người dùng ..." class="form-control" type="text">
+                <label>{{'Name' | translate}}</label>
+                <input  [(ngModel)]="searchTerm" name="searchTerm" placeholder="{{'Enter-userName' | translate}} ..." class="form-control" type="text">
               </div>
             </div>
             <div class="col-sm-6 col-md-3">
               <div class="form-group">
-                <button class="btn btn-primary btn-block" type="submit">Tìm Kiếm</button>
+                <button class="btn btn-primary btn-block" type="submit">{{'Search' | translate}}</button>
               </div>
             </div>
           </div>
@@ -47,12 +47,12 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Ảnh đại diện</th>
-                  <th>Tên</th>
+                  <th>{{'Avatar' | translate}}</th>
+                  <th>{{'Name' | translate}}</th>
                   <th>Email</th>
-                  <th>Mật khẩu</th>
-                  <th>Ngày tạo</th>
-                  <th>Chỉnh sửa</th>
+                  <th>{{'Password' | translate}}</th>
+                  <th>{{'Date-created' | translate}}</th>
+                  <th>{{'Action' | translate}}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -64,8 +64,8 @@
                   <td>{{user.password}}</td>
                   <td>{{user.date_created}}</td>
                   <td class="text-right">
-                    <a [routerLink]="['/edit-user/'+user.id]" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                    <button (click)="deleteUser(user.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+                    <a [routerLink]="['/edit-user/'+user.id]" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> {{'Edit' | translate}}</a>
+                    <button (click)="deleteUser(user.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i>{{'Delete' | translate}}</button>
 
                   </td>
                 </tr>

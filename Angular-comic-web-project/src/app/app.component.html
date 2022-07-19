@@ -16,6 +16,12 @@
   <ul class="nav user-menu">
     <!-- Notifications -->
     <li class="nav-item dropdown noti-dropdown">
+      <select class="form-check-inline" #selectedLang (change)="switchLang(selectedLang.value)">
+        <option *ngFor="let language of translate.getLangs()" [value]="language"
+                [selected]="language === translate.currentLang">
+          {{ language }}
+        </option>
+      </select>
       <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
         <i class="far fa-bell"></i>  <span class="badge badge-pill"></span>
       </a>
@@ -185,10 +191,10 @@
             <a [routerLink]="['/dashboard']"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
           </li>
           <li class="submenu">
-            <a [routerLink]="['/comics']"><i class="fas fa-tasks"></i> <span>Quản lí truyện</span></a>
+            <a [routerLink]="['/comics']"><i class="fas fa-tasks"></i> <span>{{'Comic-management' | translate}}</span></a>
           </li>
           <li class="submenu">
-            <a [routerLink]="['/users']"><i class="fas fa-users"></i><span>Quản lí Người dùng</span></a>
+            <a [routerLink]="['/users']"><i class="fas fa-users"></i><span>{{'User-management' | translate}}</span></a>
           </li>
         </ul>
       </div>

@@ -188,7 +188,7 @@ function ready(){
 
 	});
 
-})(jQuery);
+})
 // bắt lỗi Đổi mật khẩu
 $(document).ready(function () {
 	$('#formPass').submit(function (e) {

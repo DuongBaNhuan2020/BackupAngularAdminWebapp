@@ -6,12 +6,12 @@
     <div class="page-header">
       <div class="row">
         <div class="col">
-          <h3 class="page-title">Danh sách bình luận</h3>
+          <h3 class="page-title">{{'Comment-list' | translate}}</h3>
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">{{'Comic' | translate}}</a></li>
             <li *ngIf="comic" class="breadcrumb-item active"><a [routerLink]="['/comics/'+comic.id+'/chapters']">{{comic.name}}</a></li>
             <li *ngIf="chapter" class="breadcrumb-item">{{chapter.name}}</li>
-            <li class="breadcrumb-item active">Danh sách bình luận</li>
+            <li class="breadcrumb-item active">{{'Comment-list' | translate}}</li>
           </ul>
         </div>
         <div class="col-auto text-right">
@@ -55,9 +55,9 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Nội dung</th>
-                  <th>Ngày tạo</th>
-                  <th class="text-right">Hành Động</th>
+                  <th>{{'Content' | translate}}</th>
+                  <th>{{'Date-created' | translate}}</th>
+                  <th class="text-right">{{'Action' | translate}}</th>
                 </tr>
                 </thead>
                 <!-- Thêm vào nội dung ở đây -->
@@ -67,8 +67,8 @@
                   <td>{{comment.content}}</td>
                   <td>{{comment.date_created}}</td>
                   <td class="text-right">
-                    <a [routerLink]="['/edit-comment/'+comic_id+'/'+chapter_id+'/'+comment.id]"class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                    <button (click)="deleteComment(comment.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+                    <a [routerLink]="['/edit-comment/'+comic_id+'/'+chapter_id+'/'+comment.id]"class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i>{{'Edit' | translate}}</a>
+                    <button (click)="deleteComment(comment.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i>{{'Delete' | translate}}</button>
 
                   </td>
                 </tr>

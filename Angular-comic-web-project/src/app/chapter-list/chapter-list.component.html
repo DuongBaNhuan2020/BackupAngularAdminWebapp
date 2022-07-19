@@ -6,11 +6,11 @@
     <div class="page-header">
       <div class="row">
         <div class="col">
-          <h3 class="page-title">Danh sách chương</h3>
+          <h3 class="page-title">{{'Chapter-list' | translate}}</h3>
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">{{'Comic' | translate}}</a></li>
             <li *ngIf="comic" class="breadcrumb-item active">{{comic.name}}</li>
-            <li class="breadcrumb-item active">Danh sách chương</li>
+            <li class="breadcrumb-item active">{{'Chapter-list' | translate}}</li>
           </ul>
         </div>
         <div class="col-auto text-right">
@@ -54,10 +54,10 @@
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Tên chương</th>
-                  <th>Ngày tạo</th>
-                  <th>Bình luận</th>
-                  <th class="text-right">Hành Động</th>
+                  <th>{{'Chapter-name' | translate}}</th>
+                  <th>{{'Publication-date' | translate}}</th>
+                  <th>{{'Comment' | translate}}</th>
+                  <th class="text-right">{{'Action' | translate}}</th>
                 </tr>
                 </thead>
                 <!-- Thêm vào nội dung ở đây -->
@@ -66,10 +66,10 @@
                   <td>{{chapter.id}}</td>
                   <td>{{chapter.name}}</td>
                   <td>{{chapter.date_created}}</td>
-                  <td><a [routerLink]="['/comics/comments/'+comic_id+'/'+chapter.id]">Xem</a></td>
+                  <td><a [routerLink]="['/comics/comments/'+comic_id+'/'+chapter.id]">{{'View' | translate}}</a></td>
                   <td class="text-right">
-                    <a [routerLink]="['/edit-chapter/'+comic_id+'/'+chapter.id]" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i> Sửa</a>
-                    <button (click)="deleteChapter(chapter.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> Xóa</button>
+                    <a [routerLink]="['/edit-chapter/'+comic_id+'/'+chapter.id]" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i>{{'Edit' | translate}}</a>
+                    <button (click)="deleteChapter(chapter.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i>{{'Delete' | translate}}</button>
 
                   </td>
                 </tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-comic-login',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComicLoginComponent implements OnInit {
 
-  constructor() { }
-
   ngOnInit(): void {
+  }
+  constructor(public translate: TranslateService) {
+    translate.addLangs(['English', 'Tiếng việt']);
+    translate.setDefaultLang('English');
+  }
+
+  switchLang(lang: string) {
+    this.translate.use(lang);
   }
 
 }
