@@ -1,4 +1,5 @@
 {
+  "Comic-world": "Thế giới truyện",
   "Name": "Tên người dùng",
   "Email": "Email",
   "Enter-email": "Nhập email",
@@ -43,5 +44,22 @@
   "Content": "Nội dung",
   "Date-created": "Ngày tạo",
   "User-list": "Danh sách người dùng",
-  "Avatar": "Ảnh đại diện"
+  "Avatar": "Ảnh đại diện",
+  "Comic-add": "Thêm truyện",
+  "Chapter-number": "Số chương",
+  "Display": "Hiển thị",
+  "Full": "Hoàn thành",
+  "Description": "Mô tả",
+  "Save-change": "Lưu thay đổi",
+  "Exit": "Hủy",
+  "Comic-edit": "Sửa truyện",
+  "Chapter-add": "Thêm chương mới",
+  "Content": "Nội dung",
+  "Chapter-edit": "Sửa nội dung chương",
+  "Comment-edit": "Sửa nội dung bình luận",
+  "Comment-add": "Thêm bình luận mới",
+  "User-edit": "Sửa thông tin người dùng",
+  "User-info": "Thông tin người dùng",
+  "Like-list": "Danh sách yêu thích",
+  "User-add": "Thêm người dùng mới"
 }

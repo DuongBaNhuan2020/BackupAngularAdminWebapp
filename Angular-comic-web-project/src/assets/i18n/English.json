@@ -1,4 +1,5 @@
 {
+  "Comic-world": "Comic world",
   "Name": "User name",
   "Email": "Email",
   "Enter-email": "Enter email",
@@ -43,6 +44,24 @@
   "Content": "Content",
   "Date-created": "Date created",
   "User-list": "User list",
-  "Avatar": "Avatar"
+  "Avatar": "Avatar",
+  "Comic-add": "Add comic",
+  "Chapter-number": "Number of chapter",
+  "Display": "Display",
+  "Full": "Full",
+  "Description": "Description",
+  "Save-change": "Save",
+  "Exit": "Exit",
+  "Comic-edit": "Edit comic",
+  "Chapter-add": "Add chapter",
+  "Content": "Content",
+  "Chapter-edit": "Edit chapter",
+  "Comment-edit": "Edit comment",
+  "Comment-add": "Add comment",
+  "User-edit": "Edit user",
+  "User-info": "User infomation",
+  "Like-list": "List like",
+  "User-add": "Add user"
+
 
 }

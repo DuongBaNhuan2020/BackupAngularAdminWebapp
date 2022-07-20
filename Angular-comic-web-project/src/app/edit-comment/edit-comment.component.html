@@ -6,12 +6,12 @@
     <div class="page-header">
       <div class="row">
         <div class="col">
-          <h3 class="page-title">Sửa nội dung bình luận </h3>
+          <h3 class="page-title">{{'Comment-edit' | translate}} </h3>
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">{{'Comic' | translate}}</a></li>
             <li *ngIf="comic" class="breadcrumb-item active"><a [routerLink]="['/comics/'+comic.id+'/chapters']">{{comic.name}}</a></li>
             <li *ngIf="chapter" class="breadcrumb-item"><a [routerLink]="['/comics/comments/'+comic_id+'/'+chapter.id]">{{chapter.name}}</a></li>
-            <li class="breadcrumb-item active">Sửa nội dung bình luận</li>
+            <li class="breadcrumb-item active">{{'Comment-edit' | translate}} </li>
           </ul>
         </div>
         <!-- <div class="col-auto text-right">
@@ -73,12 +73,12 @@
                   <input readonly class="form-control" type="text" id="id" name="id" type="text" readonly  [(ngModel)]="comment.id">
                 </div>
                 <div class="form-group">
-                  <label>Nội dung</label>
+                  <label>{{'Content' | translate}} </label>
                   <input class="form-control" type="text" id="content" name="content" type="text" [(ngModel)]="comment.content">
                 </div>
                 <div class="mt-4">
-                  <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
-                  <a (click)="gotoList()" class="btn btn-link">Hủy</a>
+                  <button class="btn btn-primary" type="submit">{{'Save-change' | translate}} </button>
+                  <a (click)="gotoList()" class="btn btn-link">{{'Exit' | translate}} </a>
                 </div>
               </form>
               <!-- /Form -->

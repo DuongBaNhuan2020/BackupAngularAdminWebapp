@@ -6,10 +6,10 @@
     <div class="page-header">
       <div class="row">
         <div class="col">
-          <h3 class="page-title">Thêm truyện</h3>
+          <h3 class="page-title">{{'Comic-add' | translate}}</h3>
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
-            <li class="breadcrumb-item active">Thêm truyện</li>
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">{{'Comic' | translate}}</a></li>
+            <li class="breadcrumb-item active">{{'Comic-add' | translate}}</li>
           </ul>
         </div>
 
@@ -24,7 +24,7 @@
             <form (ngSubmit)="onSubmit()">
 
               <div class="form-group">
-                <label>Ảnh bìa</label>
+                <label>{{'Cover-image' | translate}}</label>
 <!--                <input class="form-control" type="file">-->
                 <input [(ngModel)]="comic.cover_image" id="cover_image" name="cover_image" class="form-control" type="text" value="">
               </div>
@@ -34,27 +34,27 @@
 <!--                </div>-->
 <!--              </div>-->
               <div class="form-group">
-                <label>Tên Truyện</label>
+                <label>{{'Comic-name' | translate}}</label>
                 <input [(ngModel)]="comic.name" id="name" name="name" class="form-control" type="text" value="">
               </div>
               <div class="form-group">
-                <label>Tác giả</label>
+                <label>{{'Author' | translate}}</label>
                 <input [(ngModel)]="comic.author" id="author" name="author" class="form-control" type="text" value="">
               </div>
               <div class="form-group">
-                <label>Quốc gia</label>
+                <label>{{'Nation' | translate}}</label>
                 <input [(ngModel)]="comic.nation" id="nation" name="nation" class="form-control" type="text" value="">
               </div>
               <div class="form-group">
-                <label>Số chương</label>
+                <label>{{'Chapter-number' | translate}}</label>
                 <input [(ngModel)]="comic.chapter_number" id="chapter_number" name="chapter_number" class="form-control" type="text" value="">
               </div>
               <div class="form-group">
-                <label>Ngày xuất bản</label>
+                <label>{{'Publication-date' | translate}}</label>
                 <input [(ngModel)]="comic.date_created" id="date_created" name="date_created" class="form-control" type="date" value="">
               </div>
               <div class="form-group">
-                <label>Chọn danh mục</label><br>
+                <label>{{'Category' | translate}}</label><br>
                 <select [(ngModel)]="comic.category"  id="category" name="category" class="form-control select">
                   <option  *ngFor="let o of options">
                     {{o.name}}
@@ -63,15 +63,15 @@
               </div>
               <div class="status-toggle">
                 <input [(ngModel)]="comic.display"  id="display" name="display"  type="checkbox">
-                <label style="margin-left: 2px">Hiển thị</label>
+                <label style="margin-left: 2px">{{'Display' | translate}}</label>
                 <br>
                 <input [(ngModel)]="comic.full"  id="full" name="full"  type="checkbox">
-                <label style="margin-left: 2px">Hoàn thành</label>
+                <label style="margin-left: 2px">{{'Full' | translate}}</label>
 <!--                <input id="rating_2" class="check" type="checkbox" checked>-->
 <!--                <label for="rating_2" [(ngModel)]="comic.display" [ngModelOptions]="{standalone: true}" id="display" name="display" class="checktoggle">checkbox</label>-->
               </div>
               <div class="form-group">
-                <label>Mô tả</label>
+                <label>{{'Description' | translate}}</label>
                 <textarea [(ngModel)]="comic.description" id="description" name="description"  style="height: 100px;" class="form-control" type="text"></textarea>
               </div>
 <!--              <div class="status-toggle">-->
@@ -85,8 +85,8 @@
 <!--                <label for="rating_4" class="checktoggle">checkbox</label>-->
 <!--              </div>-->
               <div class="mt-4">
-                <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
-                <a (click)="gotoList()" class="btn btn-link">Hủy</a>
+                <button class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
+                <a (click)="gotoList()" class="btn btn-link">{{'Exit' | translate}}</a>
               </div>
             </form>
           </div>

@@ -7,10 +7,10 @@
     <div class="page-header">
       <div class="row">
         <div class="col">
-          <h3 class="page-title">Thêm người dùng mới</h3>
+          <h3 class="page-title">{{'User-add' | translate}}</h3>
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a [routerLink]="['/users']">Người dùng</a></li>
-            <li class="breadcrumb-item active">Thêm người dùng mới</li>
+            <li class="breadcrumb-item"><a [routerLink]="['/users']">{{'User-management' | translate}}</a></li>
+            <li class="breadcrumb-item active">{{'User-add' | translate}}</li>
           </ul>
         </div>
       </div>
@@ -21,17 +21,17 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Thông tin người dùng</h4>
+            <h4 class="card-title">{{'User-info' | translate}}</h4>
           </div>
           <div class="card-body">
             <form (ngSubmit)="onSubmit()">
               <div class="form-group row">
-                <label>Ảnh đại diện</label>
+                <label>{{'Avatar' | translate}}</label>
                 <input class="form-control" type="text" id="avatar" name="avatar" type="text"  [(ngModel)]="user.avatar">
               </div>
 
               <div class="form-group row">
-                <label class="col-form-label col-md-2">Tên người dùng</label>
+                <label class="col-form-label col-md-2">{{'Name' | translate}}</label>
                 <div class="col-md-10">
                   <input type="email" class="form-control" required id="name" name="name" type="text"  [(ngModel)]="user.name">
                 </div>
@@ -43,20 +43,20 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-form-label col-md-2">Password</label>
+                <label class="col-form-label col-md-2">{{'Password' | translate}}</label>
                 <div class="col-md-10">
                   <input type="password" class="form-control" required id="password" name="password" type="text"  [(ngModel)]="user.password">
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-form-label col-md-2">Ngày tạo</label>
+                <label class="col-form-label col-md-2">{{'Date-created' | translate}}</label>
                 <div class="cal-icon col-md-10">
                   <input class="form-control datetimepicker" name="date_created" id="date_created" name="date_created" type="date"  [(ngModel)]="user.date_created">
                 </div>
               </div>
               <div class="mt-4">
-                <button class="btn btn-primary" type="submit">Thêm</button>
-                <a (click)="gotoList()" class="btn btn-link">Hủy</a>
+                <button class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
+                <a (click)="gotoList()" class="btn btn-link">{{'Exit' | translate}}</a>
               </div>
             </form>
           </div>

@@ -6,11 +6,11 @@
     <div class="page-header">
       <div class="row">
         <div class="col">
-          <h3 class="page-title">Thêm chương mới</h3>
+          <h3 class="page-title">{{'Chapter-add' | translate}}</h3>
           <ul class="breadcrumb">
-            <li class="breadcrumb-item"><a [routerLink]="['/comics']">Truyện</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/comics']">{{'Comic' | translate}}</a></li>
             <li *ngIf="comic" class="breadcrumb-item active"><a [routerLink]="['/comics/'+comic.id+'/chapters']">{{comic.name}}</a></li>
-            <li class="breadcrumb-item active">Thêm chương mới</li>
+            <li class="breadcrumb-item active">{{'Chapter-add' | translate}}</li>
           </ul>
         </div>
 
@@ -28,20 +28,20 @@
             <form (ngSubmit)="onSubmit()">
 
               <div class="form-group">
-                <label>Tên</label>
+                <label>{{'Chapter-name' | translate}}</label>
                 <input class="form-control" type="text" id="name" name="name" [(ngModel)]="chapter.name">
               </div>
               <div class="form-group">
-                <label>Ngày xuất bản</label>
+                <label>{{'Publication-date' | translate}}</label>
                 <input class="form-control" type="date" id="date_created" name="date_created" [(ngModel)]="chapter.date_created">
               </div>
               <div>
-                <label>Nội dung</label>
+                <label>{{'Content' | translate}}</label>
                 <textarea style="height: 400px;" name="" class="form-control" id="content" name="content" type="text"  [(ngModel)]="chapter.content"></textarea>
               </div>
               <div class="mt-4">
-                <button class="btn btn-primary" type="submit">Lưu thay đổi</button>
-                <a (click)="gotoList()" class="btn btn-link">Hủy</a>
+                <button class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
+                <a (click)="gotoList()" class="btn btn-link">{{'Exit' | translate}}</a>
               </div>
             </form>
             <!-- /Form -->
