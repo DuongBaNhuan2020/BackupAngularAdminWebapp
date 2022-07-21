@@ -30,6 +30,8 @@ import { ComicRegisterComponent } from './comic-register/comic-register.componen
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { EmailValidatorDirective } from './email-validator.directive';
+import { UsernameValidatorDirective } from './username-validator.directive';
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     SearchByNamePipe,
     ComicLoginComponent,
     ComicRegisterComponent,
+    EmailValidatorDirective,
+    UsernameValidatorDirective,
   ],
     imports: [
         BrowserModule,
