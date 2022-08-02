@@ -65,7 +65,7 @@
                 <tr  *ngFor="let chapter of chaptersAll |searchByName: searchTerm">
                   <td>{{chapter.id}}</td>
                   <td>{{chapter.name}}</td>
-                  <td>{{chapter.date_created}}</td>
+                  <td>{{formatDate(chapter.date_created)}}</td>
                   <td><a [routerLink]="['/comics/comments/'+comic_id+'/'+chapter.id]">{{'View' | translate}}</a></td>
                   <td class="text-right">
                     <a [routerLink]="['/edit-chapter/'+comic_id+'/'+chapter.id]" class="btn btn-sm bg-success-light mr-2">	<i class="far fa-edit mr-1"></i>{{'Edit' | translate}}</a>

@@ -71,7 +71,7 @@
                     <td>{{comic.name}}</td>
                     <td>{{comic.category}}</td>
                     <td>{{comic.author}}</td>
-                    <td>{{comic.date_created}}</td>
+                    <td>{{formatDate(comic.date_created)}}</td>
                     <td>{{comic.nation}}</td>
                     <td><a [routerLink]="['/comics/'+comic.id]+'/chapters'">{{'View' | translate}}</a></td>
                     <td class="text-right">

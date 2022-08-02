@@ -24,37 +24,65 @@
             <h4 class="card-title">{{'User-info' | translate}}</h4>
           </div>
           <div class="card-body">
-            <form  *ngIf="user" (ngSubmit)="onSubmit()">
+            <form #form="ngForm"  *ngIf="user" (ngSubmit)="onSubmit()">
               <div class="form-group row">
                 <label>{{'Avatar' | translate}}</label>
-                <input class="form-control" type="text" id="avatar" name="avatar" type="text"  [(ngModel)]="user.avatar">
+                <input class="form-control" #avatar="ngModel" type="text" id="avatar" name="avatar" type="text" required  [(ngModel)]="user.avatar" [class.is-invalid]="avatar.invalid">
+                <div *ngIf="avatar.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
+
               <div class="form-group row">
                 <label class="col-form-label col-md-2">{{'Name' | translate}}</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" required id="name" name="name" type="text"  [(ngModel)]="user.name">
+                  <input class="form-control"  #name="ngModel" id="name" name="name" type="text" required minlength="5" maxlength="20"  [(ngModel)]="user.name" [class.is-invalid]="name.invalid">
+                  <div *ngIf="name.errors?.required" class="invalid-feedback">
+                    {{'Require-field' | translate}}
+                  </div>
+                  <div *ngIf="name.errors?.minlength" class="invalid-feedback">
+                    {{'Least-5' | translate}}
+                  </div>
+                  <!--                  <div *ngIf="name.errors?.maxlength" class="invalid-feedback">-->
+                  <!--                    This field must have at most 20 characters.-->
+                  <!--                  </div>-->
+                  <!--                  <div *ngIf="name.errors?.namelValidator" class="invalid-feedback">-->
+                  <!--                    This name is already has.-->
+                  <!--                  </div>-->
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-form-label col-md-2">Email</label>
                 <div class="col-md-10">
-                  <input type="email" class="form-control" required id="email" name="email" type="text"  [(ngModel)]="user.email">
+                  <input type="email"  #email="ngModel" class="form-control" required appEmailValidator id="email" name="email"  [(ngModel)]="user.email" [class.is-invalid]="email.invalid">
+                  <div *ngIf="email.errors?.required" class="invalid-feedback">
+                    {{'Require-field' | translate}}
+                  </div>
+                  <div *ngIf="email.errors?.emailValidator&&!email.errors?.required" class="invalid-feedback">
+                    {{'Invalid-email' | translate}}
+                  </div>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-form-label col-md-2">{{'Password' | translate}}</label>
                 <div class="col-md-10">
-                  <input type="text" class="form-control" required id="password" name="password" type="text"  [(ngModel)]="user.password">
+                  <input type="password" #password="ngModel" class="form-control" required minlength="15" id="password" name="password" type="text"  [(ngModel)]="user.password" [class.is-invalid]="password.invalid">
+                  <div *ngIf="password.errors?.required" class="invalid-feedback">
+                    {{'Require-field' | translate}}
+                  </div>
+                  <div *ngIf="password.errors?.minlength" class="invalid-feedback">
+                    {{'Least-15' | translate}}
+                  </div>
                 </div>
               </div>
-              <div class="form-group row">
-                <label class="col-form-label col-md-2">{{'Date-created' | translate}}</label>
-                <div class="cal-icon col-md-10">
-                  <input class="form-control datetimepicker" name="date_created" id="date_created" name="date_created" type="text"  [(ngModel)]="user.date_created">
-                </div>
-              </div>
+              <!--              <div class="form-group row">-->
+              <!--                <label class="col-form-label col-md-2">{{'Date-created' | translate}}</label>-->
+              <!--                <div class="cal-icon col-md-10">-->
+              <!--                  <input class="form-control datetimepicker" name="date_created" id="date_created" name="date_created" type="date"  [(ngModel)]="user.date_created">-->
+              <!--                </div>-->
+              <!--              </div>-->
               <div class="mt-4">
-                <button class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
+                <button  *ngIf="!form.invalid" class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
                 <a (click)="gotoList()" class="btn btn-link">{{'Exit' | translate}}</a>
               </div>
             </form>
@@ -78,7 +106,7 @@
                 <tbody>
                 <tr *ngFor="let comment of comments | async">
                   <td>{{comment.id}}</td>
-                  <td>{{comment.date_created}}</td>
+                  <td>{{formatDate(comment.date_created||" ")}}</td>
                   <td>{{comment.content}}</td>
                   <td class="text-right">
                     <button (click)="deleteComment(comment.id||0)" type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> {{'Delete' | translate}}</button>
@@ -108,7 +136,7 @@
                 <tbody>
                 <tr  *ngFor="let like of likes | async">
                   <td>{{like.id}}</td>
-                  <td>{{like.date_created}}</td>
+                  <td>{{formatDate(like.date_created||" ")}}</td>
                   <td class="text-right">
                     <button (click)="deleteLike(like.id||0)"  type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-o"></i> {{'Delete' | translate}}</button>
                   </td>

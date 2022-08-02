@@ -6,3 +6,4 @@ describe('SearchByNamePipe', () => {
     expect(pipe).toBeTruthy();
   });
 });
+

@@ -29,7 +29,7 @@
                 <label>{{'Avatar' | translate}}</label>
                 <input class="form-control" #avatar="ngModel" type="text" id="avatar" name="avatar" type="text" required  [(ngModel)]="user.avatar" [class.is-invalid]="avatar.invalid">
                 <div *ngIf="avatar.errors?.required" class="invalid-feedback">
-                  This field is required.
+                  {{'Require-field' | translate}}
                 </div>
               </div>
 
@@ -38,10 +38,10 @@
                 <div class="col-md-10">
                   <input class="form-control"  #name="ngModel" id="name" name="name" type="text" required minlength="5" maxlength="20"  [(ngModel)]="user.name" [class.is-invalid]="name.invalid">
                   <div *ngIf="name.errors?.required" class="invalid-feedback">
-                      This field is required.
+                    {{'Require-field' | translate}}
                   </div>
                   <div *ngIf="name.errors?.minlength" class="invalid-feedback">
-                    This field must have at least 5 character.
+                    {{'Least-5' | translate}}
                   </div>
 <!--                  <div *ngIf="name.errors?.maxlength" class="invalid-feedback">-->
 <!--                    This field must have at most 20 characters.-->
@@ -56,10 +56,10 @@
                 <div class="col-md-10">
                   <input type="email"  #email="ngModel" class="form-control" required appEmailValidator id="email" name="email"  [(ngModel)]="user.email" [class.is-invalid]="email.invalid">
                   <div *ngIf="email.errors?.required" class="invalid-feedback">
-                    This field is required.
+                    {{'Require-field' | translate}}
                   </div>
                   <div *ngIf="email.errors?.emailValidator&&!email.errors?.required" class="invalid-feedback">
-                    Invalid email format.
+                    {{'Invalid-email' | translate}}
                   </div>
                 </div>
               </div>
@@ -68,10 +68,10 @@
                 <div class="col-md-10">
                   <input type="password" #password="ngModel" class="form-control" required minlength="15" id="password" name="password" type="text"  [(ngModel)]="user.password" [class.is-invalid]="password.invalid">
                   <div *ngIf="password.errors?.required" class="invalid-feedback">
-                    This field is required.
+                    {{'Require-field' | translate}}
                   </div>
                   <div *ngIf="password.errors?.minlength" class="invalid-feedback">
-                    This field must have at least 15 character.
+                    {{'Least-15' | translate}}
                   </div>
                 </div>
               </div>

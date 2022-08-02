@@ -67,13 +67,16 @@
               <!-- Thay đổi code ở đây Thay đổi theo file word -->
               <!-- Form -->
 
-              <form (ngSubmit)="onSubmit()">
+              <form  #form="ngForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                   <label>{{'Content' | translate}} </label>
-                  <input class="form-control" type="text" id="content" name="content" type="text" [(ngModel)]="comment.content">
+                  <input required #content="ngModel" [class.is-invalid]="content.invalid" class="form-control" type="text" id="content" name="content" type="text" [(ngModel)]="comment.content">
+                  <div *ngIf="content.errors?.required" class="invalid-feedback">
+                    {{'Require-field' | translate}}
+                  </div>
                 </div>
                 <div class="mt-4">
-                  <button class="btn btn-primary" type="submit">{{'Save-change' | translate}} </button>
+                  <button *ngIf="!form.invalid" class="btn btn-primary" type="submit">{{'Save-change' | translate}} </button>
                   <a (click)="gotoList()"  class="btn btn-link">{{'Exit' | translate}} </a>
                 </div>
               </form>

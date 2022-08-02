@@ -61,5 +61,9 @@
   "User-edit": "Sửa thông tin người dùng",
   "User-info": "Thông tin người dùng",
   "Like-list": "Danh sách yêu thích",
-  "User-add": "Thêm người dùng mới"
+  "User-add": "Thêm người dùng mới",
+  "Require-field": "Vui lòng nhập thông tin.",
+  "Least-5": "Thông tin cần ít nhất 5 ký tự.",
+  "Invalid-email": "Sai định dạng email.",
+  "Least-15": " Thông tin cần ít nhất 15 ký tự."
 }

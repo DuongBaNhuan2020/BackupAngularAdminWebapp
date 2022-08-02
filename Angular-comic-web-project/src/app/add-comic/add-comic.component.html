@@ -21,12 +21,15 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
-            <form (ngSubmit)="onSubmit()">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
 
               <div class="form-group">
                 <label>{{'Cover-image' | translate}}</label>
 <!--                <input class="form-control" type="file">-->
-                <input [(ngModel)]="comic.cover_image" id="cover_image" name="cover_image" class="form-control" type="text" value="">
+                <input required #coverImage="ngModel" [class.is-invalid]="coverImage.invalid" [(ngModel)]="comic.cover_image" id="cover_image" name="cover_image" class="form-control" type="text" value="">
+                <div *ngIf="coverImage.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
 <!--              <div class="form-group">-->
 <!--                <div class="avatar">-->
@@ -35,31 +38,49 @@
 <!--              </div>-->
               <div class="form-group">
                 <label>{{'Comic-name' | translate}}</label>
-                <input [(ngModel)]="comic.name" id="name" name="name" class="form-control" type="text" value="">
+                <input  required #comicName="ngModel" [class.is-invalid]="comicName.invalid" [(ngModel)]="comic.name" id="name" name="name" class="form-control" type="text" value="">
+                <div *ngIf="comicName.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
               <div class="form-group">
                 <label>{{'Author' | translate}}</label>
-                <input [(ngModel)]="comic.author" id="author" name="author" class="form-control" type="text" value="">
+                <input  required #author="ngModel" [class.is-invalid]="author.invalid" [(ngModel)]="comic.author" id="author" name="author" class="form-control" type="text" value="">
+                <div *ngIf="author.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
               <div class="form-group">
                 <label>{{'Nation' | translate}}</label>
-                <input [(ngModel)]="comic.nation" id="nation" name="nation" class="form-control" type="text" value="">
+                <input  required #nation="ngModel" [class.is-invalid]="nation.invalid" [(ngModel)]="comic.nation" id="nation" name="nation" class="form-control" type="text" value="">
+                <div *ngIf="nation.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
               <div class="form-group">
                 <label>{{'Chapter-number' | translate}}</label>
-                <input [(ngModel)]="comic.chapter_number" id="chapter_number" name="chapter_number" class="form-control" type="text" value="">
+                <input  required #chapterNumber="ngModel" [class.is-invalid]="chapterNumber.invalid" [(ngModel)]="comic.chapter_number" id="chapter_number" name="chapter_number" class="form-control" type="number" value="">
+                <div *ngIf="chapterNumber.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
               <div class="form-group">
                 <label>{{'Publication-date' | translate}}</label>
-                <input [(ngModel)]="comic.date_created" id="date_created" name="date_created" class="form-control" type="date" value="">
+                <input  required #publicationDate="ngModel" [class.is-invalid]="publicationDate.invalid" [(ngModel)]="comic.date_created" id="date_created" name="date_created" class="form-control" type="date" value="">
+                <div *ngIf="publicationDate.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
               <div class="form-group">
                 <label>{{'Category' | translate}}</label><br>
-                <select [(ngModel)]="comic.category"  id="category" name="category" class="form-control select">
+                <select  required #category="ngModel" [class.is-invalid]="category.invalid" [(ngModel)]="comic.category"  id="category" name="category" class="form-control select">
                   <option  *ngFor="let o of options">
                     {{o.name}}
                   </option>
                 </select>
+                <div *ngIf="category.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
               <div class="status-toggle">
                 <input [(ngModel)]="comic.display"  id="display" name="display"  type="checkbox">
@@ -72,7 +93,10 @@
               </div>
               <div class="form-group">
                 <label>{{'Description' | translate}}</label>
-                <textarea [(ngModel)]="comic.description" id="description" name="description"  style="height: 100px;" class="form-control" type="text"></textarea>
+                <textarea required #description="ngModel" [class.is-invalid]="description.invalid" [(ngModel)]="comic.description" id="description" name="description"  style="height: 100px;" class="form-control" type="text"></textarea>
+                <div *ngIf="description.errors?.required" class="invalid-feedback">
+                  {{'Require-field' | translate}}
+                </div>
               </div>
 <!--              <div class="status-toggle">-->
 <!--                <label>Hiển thị ở mục nổi bật</label>-->
@@ -85,7 +109,7 @@
 <!--                <label for="rating_4" class="checktoggle">checkbox</label>-->
 <!--              </div>-->
               <div class="mt-4">
-                <button class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
+                <button  *ngIf="!form.invalid" class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
                 <a (click)="gotoList()" class="btn btn-link">{{'Exit' | translate}}</a>
               </div>
             </form>

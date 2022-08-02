@@ -65,7 +65,7 @@
               <!-- <table class="table table-hover table-center mb-0 datatable"> -->
               <!-- Thay đổi code ở đây Thay đổi theo file word -->
               <!-- Form -->
-              <form  *ngIf="chapter" (ngSubmit)="onSubmit()">
+              <form  #form="ngForm"  *ngIf="chapter" (ngSubmit)="onSubmit()">
 
                 <div class="form-group">
                   <label>Id</label>
@@ -73,19 +73,27 @@
                 </div>
                 <div class="form-group">
                   <label>{{'Chapter-name' | translate}}</label>
-                  <input class="form-control" id="name" name="name" type="text"  [(ngModel)]="chapter.name">
+                  <input  required #chapterName="ngModel" [class.is-invalid]="chapterName.invalid" class="form-control" type="text" id="name" name="name" [(ngModel)]="chapter.name">
+                  <div *ngIf="chapterName.errors?.required" class="invalid-feedback">
+                    {{'Require-field' | translate}}
+                  </div>
                 </div>
-                <div class="form-group">
+                <div style="display: none" class="form-group">
                   <label>{{'Publication-date' | translate}}</label>
-                  <input class="form-control" type="date" id="date_created" name="date_created" type="text"  [(ngModel)]="chapter.date_created">
+                  <input  required #publicationDate="ngModel" [class.is-invalid]="publicationDate.invalid" class="form-control" type="text" id="date_created" name="date_created" [(ngModel)]="chapter.date_created">
+                  <div *ngIf="publicationDate.errors?.required" class="invalid-feedback">
+                    {{'Require-field' | translate}}
+                  </div>
                 </div>
                 <div>
                   <label>{{'Content' | translate}}</label>
-                  <textarea style="height: 400px;" name="" class="form-control" id="content" name="content" type="text"  [(ngModel)]="chapter.content">
-										</textarea>
+                  <textarea  required #content="ngModel" [class.is-invalid]="content.invalid" style="height: 400px;" name="" class="form-control" id="content" name="content" type="text"  [(ngModel)]="chapter.content"></textarea>
+                  <div *ngIf="content.errors?.required" class="invalid-feedback">
+                    {{'Require-field' | translate}}
+                  </div>
                 </div>
                 <div class="mt-4">
-                  <button class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
+                  <button  *ngIf="!form.invalid" class="btn btn-primary" type="submit">{{'Save-change' | translate}}</button>
                   <a (click)="gotoList()" class="btn btn-link">{{'Exit' | translate}}</a>
                 </div>
               </form>

@@ -20,14 +20,15 @@ export class EditComicComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.reloadData();
   }
 
   reloadData() {
    this.comicService.getComicByComicId(this.route.snapshot.params['id']).subscribe(data => {
      console.log("day la du lieu"+data)
+     // data.valueOf().date_created=this.formatDate(data.valueOf().date_created)
      this.comic = data;
+
    }, error => console.log(error));
   }
   update() {
@@ -42,5 +43,15 @@ export class EditComicComponent implements OnInit {
   gotoList() {
     this.reloadData();
     this.router.navigate(['/comics']);
+  }
+  formatDate(value: string): string {
+    var dateString = ("\/Date("+value+")\\/").substr(6);
+    var currentTime = new Date(parseInt(dateString ));
+    var month = currentTime.getMonth() + 1;
+    var day = currentTime.getDate();
+    var year = currentTime.getFullYear();
+    var date = day + "/" + month + "/" + year;
+    // alert(date);
+    return date;
   }
 }

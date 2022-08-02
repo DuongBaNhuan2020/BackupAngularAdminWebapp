@@ -61,7 +61,11 @@
   "User-edit": "Edit user",
   "User-info": "User infomation",
   "Like-list": "List like",
-  "User-add": "Add user"
+  "User-add": "Add user",
+  "Require-field": "This field is required.",
+  "Least-5": "This field must have at least 5 character.",
+  "Invalid-email": "Invalid email format.",
+  "Least-15": " This field must have at least 15 character."
 
 
 }

@@ -7,11 +7,11 @@ import {Comic} from "./comic";
   providedIn: 'root'
 })
 export class ComicService {
-  private baseUrl = 'http://localhost:8080/api/v1/comics';
-  private baseUrlChapter = 'http://localhost:8080/api/v1/chapters';
-  private baseUrlUser = 'http://localhost:8080/api/v1/users';
-  private baseUrlComment = 'http://localhost:8080/api/v1/comments';
-  private baseUrlLike = 'http://localhost:8080/api/v1/likes';
+  private baseUrl = 'http://localhost:8080/api/test/all/comics';
+  private baseUrlChapter = 'http://localhost:8080/api/test/all/chapters';
+  private baseUrlUser = 'http://localhost:8080/api/test/all/users';
+  private baseUrlComment = 'http://localhost:8080/api/test/all/comments';
+  private baseUrlLike = 'http://localhost:8080/api/test/all/likes';
   constructor(private http: HttpClient) {}
   // Comic
   createComic(comic: Object): Observable<Object> {
